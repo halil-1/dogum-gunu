@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İyi ki Doğdun Abi!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 90%;
+      padding: 20px;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeInText 2s ease forwards;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    .heart {
+      font-size: 3em;
+      color: red;
+      animation: pulse 1s infinite;
+      opacity: 0;
+      animation: fadeInText 2s ease forwards;
+      animation-delay: 6s;
+    }
+
+    audio {
+      margin-top: 20px;
+      width: 80%;
+      max-width: 400px;
+      opacity: 0;
+      animation: fadeInText 2s ease forwards;
+      animation-delay: 7s;
+    }
+
+    .fade-line {
+      display: block;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInText 1.5s ease forwards;
+    }
+
+    .fade-line:nth-child(1) { animation-delay: 2s; }
+    .fade-line:nth-child(2) { animation-delay: 3s; }
+    .fade-line:nth-child(3) { animation-delay: 4s; }
+    .fade-line:nth-child(4) { animation-delay: 5s; }
+
+    .falling-img {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      animation: fall linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes fadeInText {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2em; }
+      p { font-size: 1em; }
+      .heart { font-size: 2.5em; }
+    }
+    .link_ {
+      font-weight: 600;
+  padding: 10px 20px;
+  background-color: rgb(255, 79, 79);
+  text-decoration: none;
+  color: black;
+  z-index: 1111;
+  border: 2px solid black;
+  border-radius: 15px;
+  animation: pulseBeat 1.5s infinite ease-in-out;
+  display: inline-block;
+  position: relative;
+  will-change: transform;
+  transition: transform 0.2s ease;
+}
+
+
+@keyframes pulseBeat {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
+    background-color: rgb(255, 255, 255);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);    background-color: rgb(255, 79, 79);
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>İyi ki Doğdun Canım Abim ❤️</h1>
+    <p>
+      <span class="fade-line">Abim yeni yaşın sana mutluluk getirsin.</span><br>
+      <span class="fade-line">Bol paralar getirsin.</span><br>
+      <span class="fade-line">İşlerin tahmin ettiğinden daha güzel olsun.</span><br>
+      <span class="fade-line">Yeni yaşında oğlunla beraber uzun sağlıklı ömrünüz olsun.</span><br>
+      <span class="fade-line">İyi ki varsın, iyi ki benim abimsin.</span>
+    </p>
+    <div class="heart">❤️</div>
+    <a class="link_" href="https://youtu.be/4CGFlUMufVc?si=fgcJMH9t_0pUyzTh">HEDİYE İÇİN TIKLA</a>
+  </div>
+
+  <script>
+    const imgSrc = "images/samet.jpg"; // Resmin yolu
+
+    function createFallingImage() {
+      const img = document.createElement("img");
+      img.src = imgSrc;
+      img.className = "falling-img";
+      img.style.left = Math.random() * 100 + "vw";
+      img.style.animationDuration = (Math.random() * 5 + 5) + "s";
+      img.style.opacity = Math.random().toFixed(1);
+      document.body.appendChild(img);
+
+      setTimeout(() => img.remove(), 10000);
+    }
+
+    setInterval(createFallingImage, 300);
+  </script>
+</body>
+</html>
